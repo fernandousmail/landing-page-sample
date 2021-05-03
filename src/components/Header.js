@@ -6,6 +6,7 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,15 +31,26 @@ const Header = (props) => {
           YourLogo
         </Typography>
         <Box display="flex" marginRight="5rem">
-          <Button className={classes.botones} variant='contained' size="large">
-            Home
-          </Button>
-          <Button className={classes.botones} size="large">
-            Service details
-          </Button>
-          <Button className={classes.botones} size="large">
-            Contact
-          </Button>
+          <NavLink to="/">
+            {" "}
+            <Button
+              className={classes.botones}
+              variant="contained"
+              size="large"
+            >
+              Home
+            </Button>
+          </NavLink>
+          <NavLink to="/service">
+            <Button className={classes.botones} size="large">
+              Service details
+            </Button>
+          </NavLink>
+          <NavLink to="/contact">
+            <Button className={classes.botones} size="large">
+              Contact
+            </Button>
+          </NavLink>
         </Box>
       </Toolbar>
     </AppBar>
