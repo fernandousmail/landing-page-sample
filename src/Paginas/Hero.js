@@ -13,13 +13,13 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
   texto2: {
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.light,
     marginLeft: "1rem",
   },
   CallToAction: {
     alignSelf: "flex-start",
     flexGrow: "1",
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.light,
   },
 }));
 

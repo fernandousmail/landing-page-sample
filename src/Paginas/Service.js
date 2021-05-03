@@ -22,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
   },
   titlebox: {
       backgroundColor:theme.palette.secondary.light,
-      maxWidth: '80%'
+      maxWidth: '80%',
+      opacity: '0.8'
   },
   titulo: {
     color: 'white',
-    marginTop: "1em",
   },
   subtitulo: {
     color: "white",
@@ -104,14 +104,14 @@ const Service = (props) => {
           <Grid item xs={12} sm={6}>
             <CartaCustom
               titulo="Responsive design"
-              contenido="Your design should adapt and transform to look good in different window sizes. With the advent of movile devices of all sizes, there's no one size fits all."
+              contenido="Your design should adapt and transform to look good in different window sizes. With the advent of mobile devices of all sizes, there's no one size fits all."
               imagen={pantallas}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
             <CartaCustom
               titulo="Optimized implementation"
-              contenido="Optimization is key for good UX (User Experience). Action should flow smoothly to give a nice feeling of communication to your customers."
+              contenido="Optimization is key for good UX (User Experience). Action should flow smoothly to give a nice feeling of communication to your custommers."
               imagen={circulo}
             />
           </Grid>
@@ -125,7 +125,7 @@ const Service = (props) => {
           <Grid item xs={12} sm={6}>
             <CartaCustom
               titulo="Special wordpress service!"
-              contenido="Did you know you can implement a fresh front-end like this to your own existing Wordpress page? Your same pannel, pages, posts and information on a fresh site!"
+              contenido="Did you know you can implement a fresh front-end like this one to your own existing Wordpress page? Your same pannel, pages, posts and information on a fresh site!"
               imagen={zapas}
             />
           </Grid>

@@ -2,6 +2,7 @@ import {
   AppBar,
   Box,
   Button,
+  Link,
   makeStyles,
   Toolbar,
   Typography,
@@ -11,13 +12,19 @@ import { NavLink } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     opacity: "0.8",
+    height: "5em",
   },
   logo: {
     flexGrow: "1",
     marginLeft: "5rem",
   },
   botones: {
-    margin: theme.spacing(4),
+    margin: theme.spacing(3),
+    backgroundColor: theme.palette.secondary.light,
+    color: "white",
+    "&:active": {
+      backgroundColor: "white",
+    },
   },
 }));
 
@@ -31,25 +38,27 @@ const Header = (props) => {
           YourLogo
         </Typography>
         <Box display="flex" marginRight="5rem">
-          <NavLink to="/">
+          <NavLink to="/" activeClassName={classes.active}>
             {" "}
-            <Button
-              className={classes.botones}
-              variant="contained"
-              size="large"
-            >
-              Home
-            </Button>
+            <Link>
+              <Button size="large" className={classes.botones}>
+                Home
+              </Button>
+            </Link>
           </NavLink>
           <NavLink to="/service">
-            <Button className={classes.botones} size="large">
-              Service details
-            </Button>
+            <Link>
+              <Button size="large" className={classes.botones}>
+                Service details
+              </Button>
+            </Link>
           </NavLink>
           <NavLink to="/contact">
-            <Button className={classes.botones} size="large">
-              Contact
-            </Button>
+            <Link>
+              <Button size="large" className={classes.botones}>
+                Contact
+              </Button>
+            </Link>
           </NavLink>
         </Box>
       </Toolbar>
