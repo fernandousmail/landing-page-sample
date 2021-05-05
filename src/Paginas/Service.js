@@ -12,24 +12,31 @@ import circulo from "../circulo.jpeg";
 import neonyear from "../2021.jpeg";
 import zapas from "../piqsels.com-id-fsfsb2.jpg";
 import pantallas from "../pantallas.jpeg";
-import useMediaQuery from '@material-ui/core/useMediaQuery'
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles((theme) => ({
-
+  imagen: {
+    backgroundImage: `url(${circulo})`,
+    backgroundSize : 'cover',
+    minHeight: '150vh',
+    [theme.breakpoints.down('sm')]: {
+      minHeight: '190vh'
+    }
+  },
   mainbox: {
     marginTop: "9em",
     position: "absolute",
     top: "0%",
     minWidth: "100%",
-    maxWidth: '100%',
+    maxWidth: "100%",
     overflow: "hidden",
   },
   titlebox: {
-      maxWidth: '80%',
-      opacity: '0.8'
+    maxWidth: "80%",
+    opacity: "0.8",
   },
   titulo: {
-    color: 'white',
+    color: "white",
   },
   subtitulo: {
     color: "white",
@@ -38,51 +45,52 @@ const useStyles = makeStyles((theme) => ({
   grid: {
     maxWidth: "95%",
     margin: "auto",
-  },
-  gridxs: {
-    minWidth: '100%',
-    margin: 'auto',
-    display: 'flex',
-    justifyItems: 'flex-start'
+    [theme.breakpoints.down('sm')]: {
+      minWidth: "95%",
+      margin: "auto",
+      display: "flex",
+      justifyItems: "flex-start",
+    
+
+    },
   },
   card: {
     backgroundColor: theme.palette.secondary.light,
     display: "flex",
-    flexGrow:'1',
+    flexGrow: "1",
     height: 250,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "2em",
+      backgroundColor: theme.palette.secondary.light,
+      display: "flex",
+      flexGrow: "1",
+      height: 220,
+    },
   },
   cardmedia: {
     height: 250,
     width: 2000,
     maxWidth: "50%",
+    [theme.breakpoints.down("sm")]: {
+      height: 250,
+      width: 2000,
+      maxWidth: "25%",
+    },
   },
   cardtitle: {
     marginBottom: "1em",
     color: theme.palette.primary.dark,
   },
-  cardxs:{
-    marginTop: '2em',
-    backgroundColor: theme.palette.secondary.light,
-    display: "flex",
-    flexGrow:'1',
-    height: 220,
-
-  },
-
-  cardmediaxs: {
-    height: 250,
-    width: 2000,
-    maxWidth: "25%"
-  }
 }));
 
 const CartaCustom = (props) => {
   const classes = useStyles();
-  const theme = useTheme()
-  const phonesize = useMediaQuery(theme.breakpoints.down("xs")) 
   return (
-    <Card className={phonesize? classes.cardxs : classes.card} square>
-      <CardMedia image={props.imagen} className={phonesize? classes.cardmediaxs : classes.cardmedia} />
+    <Card className={classes.card} square>
+      <CardMedia
+        image={props.imagen}
+        className={classes.cardmedia}
+      />
       <CardContent className={classes.cardcontent}>
         <Typography variant="h5" className={classes.cardtitle}>
           {props.titulo}
@@ -95,24 +103,35 @@ const CartaCustom = (props) => {
 
 const Service = (props) => {
   const classes = useStyles();
-  const theme = useTheme()
-  const phonesize = useMediaQuery(theme.breakpoints.down("xs")) 
+  const theme = useTheme();
+  const phonesize = useMediaQuery(theme.breakpoints.down("xs"));
 
   return (
     <>
-      <div className='imagenservice'/>
-      
+      <div className={classes.imagen} />
+
       <Box className={classes.mainbox}>
-          <Box className={classes.titlebox} >
-                     <Typography variant={phonesize? "h3":"h2"} className={classes.titulo}>
-          Your service/<br/>product details here
-        </Typography>
-        <Typography variant={phonesize? "h5":"h4"} className={classes.subtitulo}>
-          Information to seal the deal
-        </Typography>
- 
-          </Box>
-        <Grid container spacing={phonesize? 0:5} className={phonesize? classes.gridxs:classes.grid}>
+        <Box className={classes.titlebox}>
+          <Typography
+            variant={phonesize ? "h3" : "h2"}
+            className={classes.titulo}
+          >
+            Your service/
+            <br />
+            product details here
+          </Typography>
+          <Typography
+            variant={phonesize ? "h5" : "h4"}
+            className={classes.subtitulo}
+          >
+            Information to seal the deal
+          </Typography>
+        </Box>
+        <Grid
+          container
+          spacing={phonesize ? 0 : 5}
+          className={classes.grid}
+        >
           <Grid item xs={12} sm={6}>
             <CartaCustom
               titulo="Responsive design"

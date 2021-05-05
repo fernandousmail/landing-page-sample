@@ -1,8 +1,4 @@
-.imagenhero {
-  background-image: url(../piqsels.com-id-fsfsb2.jpg);
-  background-size: cover;
-  min-height: 100vh;
-}
+
 .heroshowcase {
   position: absolute;
   top: 30%;
@@ -15,17 +11,6 @@
 }
 .juegotextohero {
   display: flex;
-}
-.imagenservice {
-  background-image: url(../circulo.jpeg);
-  background-size: cover;
-  min-height: 150vh;
-}
-.imagencontacto {
-  background-image: url(../triangulo.jpeg);
-  background-size: cover;
-  min-height: 100vh;
-  background-repeat: round;
 }
 
 
@@ -40,8 +25,5 @@
   }
   .juegotextohero {
     flex-direction: column;
-  }
-  .imagenservice {
-    min-height: 190vh;
   }
 }
