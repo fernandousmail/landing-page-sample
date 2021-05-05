@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ba3ecdac.chunk.css",
+    "main.js": "/static/js/main.bb04b0c8.chunk.js",
+    "main.js.map": "/static/js/main.bb04b0c8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9700d3fe.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9700d3fe.js.map",
+    "static/js/2.136bf877.chunk.js": "/static/js/2.136bf877.chunk.js",
+    "static/js/2.136bf877.chunk.js.map": "/static/js/2.136bf877.chunk.js.map",
+    "static/js/3.6a1d31e2.chunk.js": "/static/js/3.6a1d31e2.chunk.js",
+    "static/js/3.6a1d31e2.chunk.js.map": "/static/js/3.6a1d31e2.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.ba3ecdac.chunk.css.map": "/static/css/main.ba3ecdac.chunk.css.map",
+    "static/js/2.136bf877.chunk.js.LICENSE.txt": "/static/js/2.136bf877.chunk.js.LICENSE.txt",
+    "static/media/2021.a2a70b59.jpeg": "/static/media/2021.a2a70b59.jpeg",
+    "static/media/ZAPAS_CROPEADAS.c7ae6972.jpg": "/static/media/ZAPAS_CROPEADAS.c7ae6972.jpg",
+    "static/media/ZAPAS_CROPEADAS_XS.23020987.jpg": "/static/media/ZAPAS_CROPEADAS_XS.23020987.jpg",
+    "static/media/circulo.c4375d31.jpeg": "/static/media/circulo.c4375d31.jpeg",
+    "static/media/pantallas.28e48c8c.jpeg": "/static/media/pantallas.28e48c8c.jpeg",
+    "static/media/piqsels.com-id-fsfsb2.a694e862.jpg": "/static/media/piqsels.com-id-fsfsb2.a694e862.jpg",
+    "static/media/triangulo.edaa724d.jpeg": "/static/media/triangulo.edaa724d.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9700d3fe.js",
+    "static/js/2.136bf877.chunk.js",
+    "static/css/main.ba3ecdac.chunk.css",
+    "static/js/main.bb04b0c8.chunk.js"
+  ]
+}
