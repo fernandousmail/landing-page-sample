@@ -6,22 +6,25 @@ import {
   Grid,
   makeStyles,
   Typography,
+  useTheme,
 } from "@material-ui/core";
 import circulo from "../circulo.jpeg";
 import neonyear from "../2021.jpeg";
 import zapas from "../piqsels.com-id-fsfsb2.jpg";
 import pantallas from "../pantallas.jpeg";
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 const useStyles = makeStyles((theme) => ({
+
   mainbox: {
     marginTop: "9em",
     position: "absolute",
     top: "0%",
-    maxWidth: "100%",
+    minWidth: "100%",
+    maxWidth: '100%',
     overflow: "hidden",
   },
   titlebox: {
-      backgroundColor:theme.palette.secondary.light,
       maxWidth: '80%',
       opacity: '0.8'
   },
@@ -36,9 +39,16 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "95%",
     margin: "auto",
   },
+  gridxs: {
+    minWidth: '100%',
+    margin: 'auto',
+    display: 'flex',
+    justifyItems: 'flex-start'
+  },
   card: {
     backgroundColor: theme.palette.secondary.light,
     display: "flex",
+    flexGrow:'1',
     height: 250,
   },
   cardmedia: {
@@ -50,22 +60,33 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "1em",
     color: theme.palette.primary.dark,
   },
-  imagen: {
-    overflow: "hidden",
-    width: "240vh",
-    transform: "translate(-9rem. -1rem)",
+  cardxs:{
+    marginTop: '2em',
+    backgroundColor: theme.palette.secondary.light,
+    display: "flex",
+    flexGrow:'1',
+    height: 220,
+
   },
+
+  cardmediaxs: {
+    height: 250,
+    width: 2000,
+    maxWidth: "25%"
+  }
 }));
 
 const CartaCustom = (props) => {
   const classes = useStyles();
+  const theme = useTheme()
+  const phonesize = useMediaQuery(theme.breakpoints.down("xs")) 
   return (
-    <Card className={classes.card} square>
-      <CardMedia image={props.imagen} className={classes.cardmedia} />
+    <Card className={phonesize? classes.cardxs : classes.card} square>
+      <CardMedia image={props.imagen} className={phonesize? classes.cardmediaxs : classes.cardmedia} />
       <CardContent className={classes.cardcontent}>
         <Typography variant="h5" className={classes.cardtitle}>
           {props.titulo}
-        </Typography>{" "}
+        </Typography>
         <Typography variant="body1">{props.contenido}</Typography>
       </CardContent>
     </Card>
@@ -74,44 +95,35 @@ const CartaCustom = (props) => {
 
 const Service = (props) => {
   const classes = useStyles();
+  const theme = useTheme()
+  const phonesize = useMediaQuery(theme.breakpoints.down("xs")) 
+
   return (
     <>
-      <Box
-        maxWidth="100%"
-        display="block"
-        overflow="hidden"
-        justify="center"
-        align="center"
-        zIndex="0"
-      >
-        <img
-          className={classes.imagen}
-          src={circulo}
-          alt="un circulo violeta"
-        />
-      </Box>
+      <div className='imagenservice'/>
+      
       <Box className={classes.mainbox}>
-          <Box className={classes.titlebox}>
-                     <Typography variant="h2" className={classes.titulo}>
-          Your service/product details here
+          <Box className={classes.titlebox} >
+                     <Typography variant={phonesize? "h3":"h2"} className={classes.titulo}>
+          Your service/<br/>product details here
         </Typography>
-        <Typography variant="h4" className={classes.subtitulo}>
+        <Typography variant={phonesize? "h5":"h4"} className={classes.subtitulo}>
           Information to seal the deal
         </Typography>
  
           </Box>
-        <Grid container spacing={5} className={classes.grid}>
+        <Grid container spacing={phonesize? 0:5} className={phonesize? classes.gridxs:classes.grid}>
           <Grid item xs={12} sm={6}>
             <CartaCustom
               titulo="Responsive design"
-              contenido="Your design should adapt and transform to look good in different window sizes. With the advent of mobile devices of all sizes, there's no one size fits all."
+              contenido="Your design should adapt and transform to look good in different window sizes. Try making your browser window smaller to simulate a phone screen and see what happens!"
               imagen={pantallas}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
             <CartaCustom
               titulo="Optimized implementation"
-              contenido="Optimization is key for good UX (User Experience). Action should flow smoothly to give a nice feeling of communication to your custommers."
+              contenido="Optimization is key for good UX (User Experience). Did you notice the page didn't reload when you clicked the navigation links? try it!"
               imagen={circulo}
             />
           </Grid>

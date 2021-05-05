@@ -1,5 +1,5 @@
-import { Box, Button, makeStyles, Typography } from "@material-ui/core";
-import zapas from "../piqsels.com-id-fsfsb2.jpg";
+import { Button, CssBaseline, makeStyles, Typography, useMediaQuery, useTheme } from "@material-ui/core";
+import "./Hero.css"
 
 const useStyles = makeStyles((theme) => ({
   imagen: {
@@ -14,55 +14,48 @@ const useStyles = makeStyles((theme) => ({
   },
   texto2: {
     color: theme.palette.secondary.light,
-    marginLeft: "1rem",
+    marginLeft: "1rem", 
   },
   CallToAction: {
     alignSelf: "flex-start",
-    flexGrow: "1",
     backgroundColor: theme.palette.primary.light,
   },
+  
 }));
 
 const Hero = (props) => {
   const classes = useStyles();
+  const theme = useTheme();
+  const phonesize = useMediaQuery(theme.breakpoints.down("xs"));
+
+
 
   return (
     <>
-      <Box maxWidth="100%" overflow="hidden">
-        <img
-          src={zapas}
-          className={classes.imagen}
-          alt="imagen de zapatillas luminosas"
-        />
-      </Box>
-      <Box
-        display="flex"
-        flexDirection="column"
-        position="absolute"
-        top="30%"
-        left="55%"
-        
-      >
-        <Box display="flex">
+    <CssBaseline />
+    <div className='imagenhero' />
+    
+  <div className='heroshowcase' >
+    <div className='juegotextohero'>
           <Typography variant="h3" className={classes.texto}>
-            Project your brand
+            Project{phonesize &&<br/>} your brand{phonesize &&<br/>}
           </Typography>
           <Typography variant="h3" className={classes.texto2}>
             identity
-          </Typography>
-        </Box>
-        <Typography variant="h4" className={classes.texto}>
+          </Typography></div >
+        <Typography variant={phonesize? "h6" : "h4"} className={classes.texto}>
           Start developing an elegant website
         </Typography>
         <Button
           size="large"
           variant="contained"
-          color="primary"
+          color="secondary"
+          
           className={classes.CallToAction}
         >
           Get Started
         </Button>
-      </Box>
+          </div>
     </>
   );
 };

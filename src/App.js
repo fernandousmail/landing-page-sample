@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 import Service from "./Paginas/Service";
 import Contacto from "./Paginas/Contacto";
 import Header from "./components/Header";
+import { CssBaseline } from "@material-ui/core";
 
 const theme = createMuiTheme({
   palette: {
@@ -24,6 +25,7 @@ const theme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline/>
       <Header></Header>
       <Route exact path="/">
         <Hero />
