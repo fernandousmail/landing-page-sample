@@ -18,9 +18,12 @@ const useStyles = makeStyles((theme) => ({
   imagen: {
     backgroundImage: `url(${circulo})`,
     backgroundSize : 'cover',
-    minHeight: '150vh',
+    minHeight: '161vh',
     [theme.breakpoints.down('sm')]: {
-      minHeight: '190vh'
+      minHeight: '100vh'
+    },
+    [theme.breakpoints.down('xs')]: {
+      minHeight: '205vh'
     }
   },
   mainbox: {
@@ -30,10 +33,12 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "100%",
     maxWidth: "100%",
     overflow: "hidden",
+  
   },
   titlebox: {
     maxWidth: "80%",
     opacity: "0.8",
+      marginLeft: '1em'
   },
   titulo: {
     color: "white",
@@ -64,7 +69,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.secondary.light,
       display: "flex",
       flexGrow: "1",
-      height: 220,
     },
   },
   cardmedia: {
@@ -80,10 +84,13 @@ const useStyles = makeStyles((theme) => ({
   cardtitle: {
     marginBottom: "1em",
     color: theme.palette.primary.dark,
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: '0'
+    }
   },
 }));
 
-const CartaCustom = (props) => {
+export const CartaCustom = (props) => {
   const classes = useStyles();
   return (
     <Card className={classes.card} square>

@@ -32,11 +32,10 @@ const useStyles = makeStyles((theme) => ({
   },
   botones: {
     margin: theme.spacing(3),
-    backgroundColor: theme.palette.secondary.light,
     color: "white",
-    "&:active": {
-      backgroundColor: "white",
-    },
+  },
+  botonactivo: {
+    backgroundColor: theme.palette.secondary.main,
   },
   modalpaper: {
     background: theme.palette.secondary.main,
@@ -63,10 +62,14 @@ function HideOnScroll(props) {
 
 const Header = (props) => {
   const classes = useStyles();
-  const theme = useTheme()
-  const phonesize = useMediaQuery(theme.breakpoints.down("xs")) 
+  const theme = useTheme();
+  const phonesize = useMediaQuery(theme.breakpoints.down("sm"));
   const [openDrawer, setOpenDrawer] = useState(false);
-
+  const routesHelper = [
+    { name: "home", route: "/", icon: <HomeIcon /> },
+    { name: "service info", route: "/service", icon: <LibraryBooksIcon /> },
+    { name: "contact", route: "/contact", icon: <EmailIcon /> },
+  ];
   const openDrawerHandler = () => {
     setOpenDrawer(true);
   };
@@ -82,26 +85,21 @@ const Header = (props) => {
           <Typography className={classes.logo} variant="h4">
             YourLogo
           </Typography>
-          {!phonesize?
+          {!phonesize ? (
             <Box display="flex" marginRight="5rem">
-              <NavLink to="/" activeClassName={classes.active}>
-                <Button size="large" className={classes.botones}>
-                  Home
-                </Button>
-              </NavLink>
-              <NavLink to="/service">
-                <Button size="large" className={classes.botones}>
-                  Service details
-                </Button>
-              </NavLink>
-              <NavLink to="/contact">
-                <Button size="large" className={classes.botones}>
-                  Contact
-                </Button>
-              </NavLink>
+              {routesHelper.map((route) => (
+                <NavLink exact
+                  to={route.route}
+                  activeClassName={classes.botonactivo}
+                  key={route.name}
+                >
+                  <Button size="large" className={classes.botones}>
+                    {route.name}
+                  </Button>
+                </NavLink>
+              ))}
             </Box>
-          
-          :
+          ) : (
             <>
               <IconButton onClick={openDrawerHandler}>
                 <MenuIcon />
@@ -110,29 +108,33 @@ const Header = (props) => {
                 open={openDrawer}
                 anchor="right"
                 className={classes.drawer}
-                ModalProps={{ onClose: closeDrawerHandler, container: document.body }}
+                ModalProps={{
+                  onClose: closeDrawerHandler,
+                  container: document.body,
+                }}
                 PaperProps={{ className: classes.modalpaper }}
               >
                 <List>
-                  <NavLink to="/" style={{ textDecoration: 'none' }}>
-                    <ListItem className={classes.drawerlinks}>
-                      <Button startIcon={<HomeIcon />} onClick={closeDrawerHandler}>Home</Button>
-                    </ListItem>
-                  </NavLink>
-                  <NavLink to="/service" style={{ textDecoration: 'none' }}>
-                    <ListItem className={classes.drawerlinks}>
-                      <Button startIcon={<LibraryBooksIcon />} onClick={closeDrawerHandler}>Service Details</Button>
-                    </ListItem>
-                  </NavLink>
-                  <NavLink to="/contact" style={{ textDecoration: 'none' }}>
-                    <ListItem className={classes.drawerlinks}>
-                      <Button startIcon={<EmailIcon />} onClick={closeDrawerHandler}>Contact</Button>
-                    </ListItem>
-                  </NavLink>
+                  {routesHelper.map((route) => (
+                    <NavLink
+                      key={route.route}
+                      to={route.route}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <ListItem className={classes.drawerlinks}>
+                        <Button
+                          startIcon={route.icon}
+                          onClick={closeDrawerHandler}
+                        >
+                          {route.name}
+                        </Button>
+                      </ListItem>
+                    </NavLink>
+                  ))}
                 </List>
               </Drawer>
             </>
-          }
+          )}
         </Toolbar>
       </AppBar>
     </HideOnScroll>
